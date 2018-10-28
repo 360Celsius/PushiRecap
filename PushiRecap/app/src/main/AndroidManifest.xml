@@ -36,6 +36,14 @@
 
         </service>
 
+
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:enabled="true"
+            android:multiprocess="true"
+            android:name=".dbhelper.CurrencyConvertorProvider"
+            android:exported="true" />
+
     </application>
 
 </manifest>
