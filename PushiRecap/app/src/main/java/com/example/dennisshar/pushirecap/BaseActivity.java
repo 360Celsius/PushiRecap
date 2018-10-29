@@ -28,7 +28,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
 
         // finally change the color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.splashScreenBg));
         }
 
         helper = DatabaseHelper.getInstance(getApplicationContext());

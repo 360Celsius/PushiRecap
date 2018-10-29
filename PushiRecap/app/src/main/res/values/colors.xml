@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+    <color name="splashScreenBg">#79b629</color>
+    <color name="splashScreenLogoBg">#FFFFFF</color>
 </resources>
