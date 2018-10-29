@@ -6,7 +6,7 @@ import android.service.notification.NotificationListenerService;
 import com.example.dennisshar.pushirecap.BaseActivity;
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 
-public class BaseNotificationListner extends NotificationListenerService {
+public class BaseNotificationListnerService extends NotificationListenerService {
 
     public static DatabaseHelper helper = null;
     public Context context = null;

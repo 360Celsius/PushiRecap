@@ -53,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void bulkExternalPushNotification(ExternalPushNotificationsDataModel externalPushNotificationsDataModel){
         try {
-            deletexternalPushNotification();
+            //deletexternalPushNotification();
             ContentValues[] ipInfoObjectArr = new ContentValues[1];
             ;
             for (int i = 0; i < ipInfoObjectArr.length; i++) {
@@ -62,6 +62,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TICKER_COLUMN, externalPushNotificationsDataModel.getTicker());
                 values.put(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TITLE_COLUMN, externalPushNotificationsDataModel.getTitle());
                 values.put(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TEXT_COLUMN, externalPushNotificationsDataModel.getText());
+                values.put(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_DATE_COLUMN, externalPushNotificationsDataModel.getDate());
+
                 ipInfoObjectArr[i] = values;
             }
             context.getContentResolver().bulkInsert(DataBaseHelperContract.ExternalPushNotifications.CONTENT_URI, ipInfoObjectArr);

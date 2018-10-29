@@ -30,6 +30,8 @@ public class DataBaseHelperContract {
         public static final String DATABASE_TABLE_TICKER_COLUMN = "ticker";
         public static final String DATABASE_TABLE_TITLE_COLUMN = "title";
         public static final String DATABASE_TABLE_TEXT_COLUMN = "text";
+        public static final String DATABASE_TABLE_DATE_COLUMN = "date";
+
 
 
         public static final String SQL_CREATE_ENTRIES_EXTERNAL_PUSH_TABLE =
@@ -38,6 +40,7 @@ public class DataBaseHelperContract {
                         ExternalPushNotifications.DATABASE_TABLE_PACKAGE_COLUMN + " TEXT," +
                         ExternalPushNotifications.DATABASE_TABLE_TICKER_COLUMN + " TEXT," +
                         ExternalPushNotifications.DATABASE_TABLE_TITLE_COLUMN + " TEXT," +
+                        ExternalPushNotifications.DATABASE_TABLE_DATE_COLUMN + " TEXT," +
                         ExternalPushNotifications.DATABASE_TABLE_TEXT_COLUMN + " TEXT)";
 
 

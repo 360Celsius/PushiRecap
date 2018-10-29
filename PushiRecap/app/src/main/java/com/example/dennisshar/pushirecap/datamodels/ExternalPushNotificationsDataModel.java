@@ -6,6 +6,16 @@ public class ExternalPushNotificationsDataModel {
     private String ticker;
     private String title;
     private String text;
+    private String date;
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getPackageName() {
         return packageName;
