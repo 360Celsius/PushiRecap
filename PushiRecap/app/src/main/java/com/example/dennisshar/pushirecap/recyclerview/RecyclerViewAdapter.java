@@ -1,6 +1,8 @@
 package com.example.dennisshar.pushirecap.recyclerview;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +13,6 @@ import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<CustomViewHolder>{
 
@@ -34,7 +35,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<CustomViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewHolder, int position) {
-        viewHolder.packadgeName.setText(externalPushNotificationsDataModelList.get(position).getPackageName());
+        viewHolder.pushNotificationTitle.setText(externalPushNotificationsDataModelList.get(position).getTitle());
+        viewHolder.pushNotificationText.setText(externalPushNotificationsDataModelList.get(position).getText());
+        viewHolder.pushnotificationDate.setText(externalPushNotificationsDataModelList.get(position).getDate());
+        try
+        {
+            Drawable icon = context.getPackageManager().getApplicationIcon(externalPushNotificationsDataModelList.get(position).getPackageName());
+            viewHolder.packageIcon.setImageDrawable(icon);
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 

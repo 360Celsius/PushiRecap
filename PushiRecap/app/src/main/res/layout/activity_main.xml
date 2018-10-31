@@ -30,8 +30,26 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="-60dp"
+                    android:layout_marginLeft="-70dp"
                     android:src="@drawable/pushi_recapp_logo" />
+
+                <ImageView
+                    android:id="@+id/settings_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/more_button"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/ic_settings" />
+
+                <ImageView
+                    android:id="@+id/more_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/ic_more_vert" />
 
 
             </RelativeLayout>
