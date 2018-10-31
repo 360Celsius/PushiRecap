@@ -1,6 +1,7 @@
 package com.example.dennisshar.pushirecap.services;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
@@ -24,11 +25,13 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-        helper = BaseActivity.helper;
     }
+
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
+        helper = BaseActivity.helper;
+
         try {
             String pack = sbn.getPackageName();
             String ticker = "";
@@ -47,6 +50,10 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             externalPushNotificationsDataModel.setDate(getDateTime());
             helper.bulkExternalPushNotification(externalPushNotificationsDataModel);
 
+
+            Intent msgIntent = new Intent(getApplicationContext(), IncomingPushNotificationInsertPullFromDBService.class);
+            msgIntent.putExtra(IncomingPushNotificationInsertPullFromDBServiceCalls.DATA_TYPE_KEY, IncomingPushNotificationInsertPullFromDBServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+            startService(msgIntent);
 
         }catch (NullPointerException e){
             e.printStackTrace();
