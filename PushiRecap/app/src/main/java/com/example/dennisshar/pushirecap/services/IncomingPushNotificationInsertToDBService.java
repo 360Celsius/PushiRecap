@@ -1,18 +1,31 @@
 package com.example.dennisshar.pushirecap.services;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
+import com.example.dennisshar.pushirecap.BaseActivity;
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
+import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class IncomingPushNotificationService extends BaseNotificationListnerService {
+public class IncomingPushNotificationInsertToDBService extends NotificationListenerService {
 
+    public static DatabaseHelper helper = null;
+    public Context context = null;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        context = getApplicationContext();
+        helper = BaseActivity.helper;
+    }
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {

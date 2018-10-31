@@ -1,5 +1,6 @@
 package com.example.dennisshar.pushirecap;
 
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -9,10 +10,15 @@ import android.view.WindowManager;
 
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 import com.example.dennisshar.pushirecap.interfaces.DataBaseHelperInterface;
+import com.example.dennisshar.pushirecap.recivers.ResponseReceiver;
+import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
 
 public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface {
 
     public static DatabaseHelper helper = null;
+    private static IntentFilter filter = null;
+    private static ResponseReceiver receiver = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,20 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
 
         helper = DatabaseHelper.getInstance(getApplicationContext());
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        filter = new IntentFilter(IncomingPushNotificationInsertPullFromDBService.GET_DATA);
+        receiver = new ResponseReceiver();
+        registerReceiver(receiver, filter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(receiver);
     }
 
     @Override

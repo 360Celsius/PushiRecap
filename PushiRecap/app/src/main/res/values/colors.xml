@@ -8,4 +8,7 @@
 
     <color name="splashScreenBg">#79b629</color>
     <color name="splashScreenLogoBg">#FFFFFF</color>
+    <color name="mainActivityActionBarBg">#79b629</color>
+    <color name="mainActivityActionBArTextColor">#FFFFFF</color>
+
 </resources>
