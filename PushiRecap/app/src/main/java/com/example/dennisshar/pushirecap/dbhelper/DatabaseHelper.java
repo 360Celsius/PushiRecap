@@ -2,10 +2,13 @@ package com.example.dennisshar.pushirecap.dbhelper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -83,6 +86,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         } finally {
             db.endTransaction();
+        }
+    }
+
+
+    public ArrayList<ExternalPushNotificationsDataModel> getPushNotification() {
+
+        ArrayList<ExternalPushNotificationsDataModel> externalPushNotificationsDataModelList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DataBaseHelperContract.ExternalPushNotifications.SQL_SELECT_EXTERNAL_PUSH_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+
+                    ExternalPushNotificationsDataModel externalPushNotificationsDataModel = new ExternalPushNotificationsDataModel();
+                    externalPushNotificationsDataModel.setDate(cursor.getString(cursor.getColumnIndex(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_DATE_COLUMN)));
+                    externalPushNotificationsDataModel.setText(cursor.getString(cursor.getColumnIndex(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TEXT_COLUMN)));
+                    externalPushNotificationsDataModel.setTitle(cursor.getString(cursor.getColumnIndex(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TITLE_COLUMN)));
+                    externalPushNotificationsDataModel.setTicker(cursor.getString(cursor.getColumnIndex(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_TICKER_COLUMN)));
+                    externalPushNotificationsDataModel.setPackageName(cursor.getString(cursor.getColumnIndex(DataBaseHelperContract.ExternalPushNotifications.DATABASE_TABLE_PACKAGE_COLUMN)));
+                    externalPushNotificationsDataModelList.add(externalPushNotificationsDataModel);
+
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+
+            return externalPushNotificationsDataModelList;
         }
     }
 }
