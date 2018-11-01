@@ -29,7 +29,7 @@
     <TextView
         android:id="@+id/pushnotification_date"
         android:layout_width="wrap_content"
-        android:layout_marginRight="12dp"
+        android:layout_marginRight="16dp"
         android:layout_alignTop="@+id/package_icon"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
