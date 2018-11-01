@@ -18,5 +18,9 @@
     <color name="lastUpdateHeader">#adcf7c</color>
     <color name="headerTextBg">#ffffff</color>
 
+    <color name="pullToRefreshCOlor_1">#79b629</color>
+    <color name="pullToRefreshCOlor_2">#adcf7c</color>
+    <color name="pullToRefreshCOlor_3">#79b629</color>
+
 
 </resources>
