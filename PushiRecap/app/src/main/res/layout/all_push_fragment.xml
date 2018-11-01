@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/pushNotificationBGColor">
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/pushNotificationRecyclerViewBGColor"/>
+
+    <TextView
+        android:id="@+id/last_updated_list"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:background="@color/lastUpdateHeader"
+        android:textColor="@color/headerTextBg"
+        android:textStyle="bold"
+        android:layout_height="20dp" />
 
 </RelativeLayout>

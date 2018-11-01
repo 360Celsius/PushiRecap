@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.dennisshar.pushirecap.BaseActivity;
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
+import com.example.dennisshar.pushirecap.tools.Tools;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ import java.util.Date;
 public class IncomingPushNotificationInsertToDBService extends NotificationListenerService {
 
     public static DatabaseHelper helper = null;
+    public static Tools tools = null;
     public Context context = null;
 
     @Override
@@ -31,6 +33,7 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         helper = BaseActivity.helper;
+        tools = BaseActivity.tools;
 
         try {
             String pack = sbn.getPackageName();
@@ -47,7 +50,7 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             externalPushNotificationsDataModel.setTicker(ticker);
             externalPushNotificationsDataModel.setTitle(title);
             externalPushNotificationsDataModel.setText(text);
-            externalPushNotificationsDataModel.setDate(getDateTime());
+            externalPushNotificationsDataModel.setDate(tools.getDateTime());
             helper.bulkExternalPushNotification(externalPushNotificationsDataModel);
 
 
@@ -59,13 +62,6 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             e.printStackTrace();
         }
 
-    }
-
-
-    private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
     }
 
     @Override

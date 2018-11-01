@@ -12,4 +12,11 @@
     <color name="mainActivityActionBArTextColor">#FFFFFF</color>
     <color name="customRowButtomLineColor">#79b629</color>
 
+    <color name="pushNotificationBGColor">#eae8e2</color>
+    <color name="pushNotificationRecyclerViewBGColor">#FFFFFF</color>
+
+    <color name="lastUpdateHeader">#adcf7c</color>
+    <color name="headerTextBg">#ffffff</color>
+
+
 </resources>

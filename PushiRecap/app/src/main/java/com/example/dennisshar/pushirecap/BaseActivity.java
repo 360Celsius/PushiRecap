@@ -10,15 +10,18 @@ import android.view.WindowManager;
 
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 import com.example.dennisshar.pushirecap.interfaces.DataBaseHelperInterface;
+import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
 import com.example.dennisshar.pushirecap.recivers.ResponseReceiver;
 import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
+import com.example.dennisshar.pushirecap.tools.Tools;
 
-public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface {
+public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface, ToolsInterface {
 
     public static DatabaseHelper helper = null;
     private static IntentFilter filter = null;
     private static ResponseReceiver receiver = null;
 
+    public static Tools tools = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
         }
 
         helper = DatabaseHelper.getInstance(getApplicationContext());
+        tools = Tools.getInstance(getApplicationContext());
 
     }
 
@@ -60,4 +64,8 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
         return helper;
     }
 
+    @Override
+    public Tools getTools() {
+        return tools;
+    }
 }

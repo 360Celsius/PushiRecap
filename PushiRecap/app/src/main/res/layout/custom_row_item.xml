@@ -17,6 +17,10 @@
         android:id="@+id/pushnotification_title"
         android:layout_width="wrap_content"
         android:layout_marginLeft="12dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginRight="24dp"
+        android:layout_toLeftOf="@+id/pushnotification_date"
         android:layout_alignTop="@+id/package_icon"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/package_icon"
@@ -39,6 +43,9 @@
         android:layout_marginTop="6dp"
         android:layout_below="@+id/pushnotification_title"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginRight="24dp"
         android:layout_toRightOf="@+id/package_icon"
         />
 

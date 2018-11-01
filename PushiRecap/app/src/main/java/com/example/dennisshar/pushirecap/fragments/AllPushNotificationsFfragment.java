@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.recyclerview.RecyclerViewAdapter;
@@ -17,6 +18,7 @@ public class AllPushNotificationsFfragment extends BaseFragment {
     public final static String TAG = "AllPushNotificationsFfragment";
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
+    private TextView lastUpdatedList;
 
     @Nullable
     @Override
@@ -29,6 +31,9 @@ public class AllPushNotificationsFfragment extends BaseFragment {
 
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        lastUpdatedList = (TextView) view.findViewById(R.id.last_updated_list);
+        lastUpdatedList.setText(tools.getTools().getDateTime());
 
         return view;
     }
