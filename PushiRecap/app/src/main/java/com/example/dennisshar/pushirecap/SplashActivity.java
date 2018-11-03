@@ -4,12 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.wang.avi.AVLoadingIndicatorView;
+
 public class SplashActivity extends BaseActivity {
+
+    private AVLoadingIndicatorView splashActivityLoadingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        splashActivityLoadingView = (AVLoadingIndicatorView) findViewById(R.id.splash_activity_avi);
+        splashActivityLoadingView.show();
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -21,5 +28,11 @@ public class SplashActivity extends BaseActivity {
         }, 5000);   //5 seconds
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        splashActivityLoadingView.hide();
     }
 }
