@@ -122,4 +122,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return externalPushNotificationsDataModelList;
         }
     }
+
+
+    public int getPushNotificationCount() {
+
+        int rowCounter = 0;
+        ArrayList<ExternalPushNotificationsDataModel> externalPushNotificationsDataModelList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DataBaseHelperContract.ExternalPushNotifications.SQL_SELECT_EXTERNAL_PUSH_TABLE, null);
+
+        try {
+            rowCounter = cursor.getCount();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+
+            return rowCounter;
+        }
+    }
 }
