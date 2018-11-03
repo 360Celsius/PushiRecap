@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="80dp"
-    android:id="@+id/custom_row_item_main_view">
+    android:id="@+id/custom_row_item_main_view"
+    android:background="@color/customListRowColor">
 
     <ImageView
         android:id="@+id/package_icon"
         android:layout_marginLeft="12dp"
         android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         />
 
     <TextView

@@ -17,9 +17,9 @@ import com.example.dennisshar.pushirecap.recyclerview.RecyclerViewAdapter;
 import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
 import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBServiceCalls;
 
-public class AllPushNotificationsFfragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
+public class AllPushNotificationsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
-    public final static String TAG = "AllPushNotificationsFfragment";
+    public final static String TAG = "AllPushNotificationsFragment";
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private TextView lastUpdatedList;

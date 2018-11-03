@@ -40,6 +40,11 @@ public class IncomingPushNotificationInsertPullFromDBService extends IntentServi
                 broadcastIntent.setAction(GET_DATA);
                 broadcastIntent.putExtra(IncomingPushNotificationInsertPullFromDBServiceCalls.DATA_TYPE_KEY, IncomingPushNotificationInsertPullFromDBServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
                 sendBroadcast(broadcastIntent);
+            }else{
+                Intent broadcastIntent = new Intent();
+                broadcastIntent.setAction(GET_DATA);
+                broadcastIntent.putExtra(IncomingPushNotificationInsertPullFromDBServiceCalls.DATA_TYPE_KEY, IncomingPushNotificationInsertPullFromDBServiceCalls.NO_DATA);
+                sendBroadcast(broadcastIntent);
             }
         }
     }

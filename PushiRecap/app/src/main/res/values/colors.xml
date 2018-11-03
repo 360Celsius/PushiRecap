@@ -24,4 +24,7 @@
 
     <color name="splashScreenLoadingDots">#ffffff</color>
 
+    <color name="customListRowColor">#ffffff</color>
+
+
 </resources>
