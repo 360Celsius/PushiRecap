@@ -14,6 +14,7 @@ import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
 import com.example.dennisshar.pushirecap.recivers.ResponseReceiver;
 import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
 import com.example.dennisshar.pushirecap.tools.Tools;
+import com.google.android.gms.ads.MobileAds;
 
 public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface, ToolsInterface {
 
@@ -42,6 +43,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
 
         helper = DatabaseHelper.getInstance(getApplicationContext());
         tools = Tools.getInstance(getApplicationContext());
+
 
     }
 

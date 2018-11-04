@@ -26,5 +26,6 @@
 
     <color name="customListRowColor">#ffffff</color>
 
+    <color name="adUnitBAckground">#adcf7c</color>
 
 </resources>
