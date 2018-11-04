@@ -4,9 +4,46 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/oh_no_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/no_oh_no_text"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <ImageView
+        android:id="@+id/no_permisions_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="12dp"
         android:layout_centerInParent="true"
-        android:text="No Permissions"/>
+        android:layout_below="@+id/oh_no_text"
+        android:src="@drawable/ic_lock_outline"/>
+
+    <TextView
+        android:id="@+id/no_permisions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_permisions"
+        android:layout_below="@+id/no_permisions_image"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+
+    <TextView
+        android:id="@+id/permition_explain_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/permition_explan_text"
+        android:layout_below="@+id/no_permisions"
+        android:layout_margin="32dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"/>
 
 </RelativeLayout>

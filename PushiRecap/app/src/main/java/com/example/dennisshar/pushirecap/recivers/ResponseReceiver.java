@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.fragments.AllPushNotificationsFragment;
 import com.example.dennisshar.pushirecap.fragments.NoDataFragment;
+import com.example.dennisshar.pushirecap.fragments.NoPermissiomsGrantedFragment;
 import com.example.dennisshar.pushirecap.services.PullAndPushServiceCalls;
 
 public class ResponseReceiver extends BroadcastReceiver {
@@ -35,6 +36,14 @@ public class ResponseReceiver extends BroadcastReceiver {
                 case PullAndPushServiceCalls.NO_DATA:
                     try {
                         ft.add(R.id.fragment_view_placeholder, new NoDataFragment(), NoDataFragment.TAG);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case PullAndPushServiceCalls.NO_PERMISIONS:
+                    try {
+                        ft.add(R.id.fragment_view_placeholder, new NoPermissiomsGrantedFragment(), NoPermissiomsGrantedFragment.TAG);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
