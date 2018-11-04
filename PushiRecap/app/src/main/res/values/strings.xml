@@ -6,6 +6,6 @@
 
     <string name="no_permisions">"No Permisions!"</string>
 
-    <string name="permition_explan_text">"You need to allow Notification Access brfore using this app"</string>
+    <string name="permition_explan_text">"You need to allow Notification Access before using this app"</string>
 
 </resources>
