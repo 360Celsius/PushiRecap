@@ -38,7 +38,7 @@
         </service>
 
         <service
-            android:name=".services.IncomingPushNotificationInsertPullFromDBService"
+            android:name=".services.PullAndPushDBService"
             android:exported="false"/>
 
         <receiver android:name=".recivers.ResponseReceiver" />

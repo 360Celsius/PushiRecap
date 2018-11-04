@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PushiRecap</string>
+
+    <string name="no_oh_no_text">Oh No ... </string>
     <string name="no_data_text">No Data!</string>
 
 </resources>

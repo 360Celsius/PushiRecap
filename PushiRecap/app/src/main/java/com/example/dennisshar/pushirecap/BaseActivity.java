@@ -12,9 +12,8 @@ import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 import com.example.dennisshar.pushirecap.interfaces.DataBaseHelperInterface;
 import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
 import com.example.dennisshar.pushirecap.recivers.ResponseReceiver;
-import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
+import com.example.dennisshar.pushirecap.services.PullAndPushDBService;
 import com.example.dennisshar.pushirecap.tools.Tools;
-import com.google.android.gms.ads.MobileAds;
 
 public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface, ToolsInterface {
 
@@ -50,7 +49,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
     @Override
     protected void onResume() {
         super.onResume();
-        filter = new IntentFilter(IncomingPushNotificationInsertPullFromDBService.GET_DATA);
+        filter = new IntentFilter(PullAndPushDBService.GET_DATA);
         receiver = new ResponseReceiver();
         registerReceiver(receiver, filter);
     }

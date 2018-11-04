@@ -12,10 +12,6 @@ import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDat
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 import com.example.dennisshar.pushirecap.tools.Tools;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 public class IncomingPushNotificationInsertToDBService extends NotificationListenerService {
 
@@ -54,8 +50,8 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             helper.bulkExternalPushNotification(externalPushNotificationsDataModel);
 
 
-            Intent msgIntent = new Intent(getApplicationContext(), IncomingPushNotificationInsertPullFromDBService.class);
-            msgIntent.putExtra(IncomingPushNotificationInsertPullFromDBServiceCalls.DATA_TYPE_KEY, IncomingPushNotificationInsertPullFromDBServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+            Intent msgIntent = new Intent(getApplicationContext(), PullAndPushDBService.class);
+            msgIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
             startService(msgIntent);
 
         }catch (NullPointerException e){

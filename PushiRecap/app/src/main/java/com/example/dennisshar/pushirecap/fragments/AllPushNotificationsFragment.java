@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.recyclerview.RecyclerViewAdapter;
-import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBService;
-import com.example.dennisshar.pushirecap.services.IncomingPushNotificationInsertPullFromDBServiceCalls;
+import com.example.dennisshar.pushirecap.services.PullAndPushDBService;
+import com.example.dennisshar.pushirecap.services.PullAndPushServiceCalls;
 
 public class AllPushNotificationsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
@@ -56,8 +56,8 @@ public class AllPushNotificationsFragment extends BaseFragment implements SwipeR
 
     @Override
     public void onRefresh() {
-        Intent msgIntent = new Intent(getContext(), IncomingPushNotificationInsertPullFromDBService.class);
-        msgIntent.putExtra(IncomingPushNotificationInsertPullFromDBServiceCalls.DATA_TYPE_KEY, IncomingPushNotificationInsertPullFromDBServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+        Intent msgIntent = new Intent(getContext(), PullAndPushDBService.class);
+        msgIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
         getContext().startService(msgIntent);
     }
 }
