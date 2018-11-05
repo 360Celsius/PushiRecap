@@ -12,7 +12,7 @@ import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 import com.example.dennisshar.pushirecap.interfaces.DataBaseHelperInterface;
 import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
 import com.example.dennisshar.pushirecap.recivers.ResponseReceiver;
-import com.example.dennisshar.pushirecap.services.PullAndPushDBService;
+import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
 import com.example.dennisshar.pushirecap.tools.Tools;
 
 public class BaseActivity extends AppCompatActivity implements DataBaseHelperInterface, ToolsInterface {
@@ -48,7 +48,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
     @Override
     protected void onResume() {
         super.onResume();
-        filter = new IntentFilter(PullAndPushDBService.GET_DATA);
+        filter = new IntentFilter(PushiRecappGlobalService.GET_DATA);
         receiver = new ResponseReceiver();
         registerReceiver(receiver, filter);
     }

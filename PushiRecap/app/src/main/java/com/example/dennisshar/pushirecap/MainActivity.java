@@ -3,8 +3,8 @@ package com.example.dennisshar.pushirecap;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.dennisshar.pushirecap.services.PullAndPushDBService;
-import com.example.dennisshar.pushirecap.services.PullAndPushServiceCalls;
+import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
+import com.example.dennisshar.pushirecap.services.PushiRecappGlobalServiceCalls;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -59,8 +59,8 @@ public class MainActivity extends BaseActivity {
 
 
 
-        Intent msgIntent = new Intent(getApplicationContext(), PullAndPushDBService.class);
-        msgIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+        Intent msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
+        msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
         startService(msgIntent);
     }
 }

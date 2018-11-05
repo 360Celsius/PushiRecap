@@ -50,8 +50,8 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             helper.bulkExternalPushNotification(externalPushNotificationsDataModel);
 
 
-            Intent msgIntent = new Intent(getApplicationContext(), PullAndPushDBService.class);
-            msgIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+            Intent msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
+            msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
             startService(msgIntent);
 
         }catch (NullPointerException e){

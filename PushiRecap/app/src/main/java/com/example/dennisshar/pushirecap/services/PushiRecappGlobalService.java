@@ -2,17 +2,14 @@ package com.example.dennisshar.pushirecap.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.dennisshar.pushirecap.BaseActivity;
+import com.example.dennisshar.pushirecap.MainActivity;
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
-import com.example.dennisshar.pushirecap.fragments.BaseFragment;
-import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
 import com.example.dennisshar.pushirecap.tools.Tools;
 
-public class PullAndPushDBService extends IntentService {
+public class PushiRecappGlobalService extends IntentService {
 
     public static final String GET_DATA = "GET_DATA";
     private static DatabaseHelper helper = null;
@@ -24,12 +21,12 @@ public class PullAndPushDBService extends IntentService {
      *
      * @param name Used to name the worker thread, important only for debugging.
      */
-    public PullAndPushDBService(String name) {
+    public PushiRecappGlobalService(String name) {
         super(name);
     }
 
-    public PullAndPushDBService() {
-        super("PullAndPushDBService");
+    public PushiRecappGlobalService() {
+        super("PushiRecappGlobalService");
     }
 
     @Override
@@ -43,24 +40,29 @@ public class PullAndPushDBService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
 
 
-        if (intent.getStringExtra(PullAndPushServiceCalls.DATA_TYPE_KEY).equalsIgnoreCase(PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB)) {
+        if (intent.getStringExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY).equalsIgnoreCase(PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB)) {
 
             if(helper.getPushNotificationCount() != 0 && tools.checkNotificationAccessPermisions() ) {
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction(GET_DATA);
-                broadcastIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+                broadcastIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
                 sendBroadcast(broadcastIntent);
             }else if(helper.getPushNotificationCount() == 0  && tools.checkNotificationAccessPermisions() ) {
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction(GET_DATA);
-                broadcastIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.NO_DATA);
+                broadcastIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.NO_DATA);
                 sendBroadcast(broadcastIntent);
             }else if( (helper.getPushNotificationCount() == 0 && !tools.checkNotificationAccessPermisions())  || (helper.getPushNotificationCount() != 0 && !tools.checkNotificationAccessPermisions())) {
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction(GET_DATA);
-                broadcastIntent.putExtra(PullAndPushServiceCalls.DATA_TYPE_KEY, PullAndPushServiceCalls.NO_PERMISIONS);
+                broadcastIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.NO_PERMISIONS);
                 sendBroadcast(broadcastIntent);
             }
+        }else if( intent.getStringExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY).equalsIgnoreCase(PushiRecappGlobalServiceCalls.LOAD_MAIN_ACTIVITY) ){
+            Intent broadcastIntent = new Intent();
+            broadcastIntent.setAction(GET_DATA);
+            broadcastIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.LOAD_MAIN_ACTIVITY);
+            sendBroadcast(broadcastIntent);
         }
     }
 }

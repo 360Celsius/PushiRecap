@@ -38,7 +38,7 @@
         </service>
 
         <service
-            android:name=".services.PullAndPushDBService"
+            android:name=".services.PushiRecappGlobalService"
             android:exported="false"/>
 
         <receiver android:name=".recivers.ResponseReceiver" />
