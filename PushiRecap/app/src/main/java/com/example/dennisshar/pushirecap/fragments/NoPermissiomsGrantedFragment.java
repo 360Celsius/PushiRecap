@@ -20,7 +20,7 @@ public class NoPermissiomsGrantedFragment extends BaseFragment implements View.O
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.no_permissions_granted_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_no_permissions_granted, container, false);
 
         goToPermisionsButton = (RelativeLayout) view.findViewById(R.id.go_to_permisions_button);
         goToPermisionsButton.setOnClickListener(this);
