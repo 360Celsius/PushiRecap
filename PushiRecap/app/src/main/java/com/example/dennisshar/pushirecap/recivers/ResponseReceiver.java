@@ -11,6 +11,8 @@ import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.fragments.AllPushNotificationsFragment;
 import com.example.dennisshar.pushirecap.fragments.NoDataFragment;
 import com.example.dennisshar.pushirecap.fragments.NoPermissiomsGrantedFragment;
+import com.example.dennisshar.pushirecap.fragments.PermissionsFragment;
+import com.example.dennisshar.pushirecap.fragments.SettingsFragment;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalServiceCalls;
 
 public class ResponseReceiver extends BroadcastReceiver {
@@ -54,6 +56,20 @@ public class ResponseReceiver extends BroadcastReceiver {
                         Intent intentone = new Intent(context, MainActivity.class);
                         intentone.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intentone);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+                case PushiRecappGlobalServiceCalls.LOAD_SETTINGS_FRGMENTS:
+                    try {
+                        ft.add(R.id.fragment_view_placeholder, new SettingsFragment(), SettingsFragment.TAG);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+                case PushiRecappGlobalServiceCalls.LOAD_PERMISIONS_FRAGMENT:
+                    try {
+                        ft.add(R.id.fragment_view_placeholder, new PermissionsFragment(), PermissionsFragment.TAG);
                     }catch (Exception e){
                         e.printStackTrace();
                     }

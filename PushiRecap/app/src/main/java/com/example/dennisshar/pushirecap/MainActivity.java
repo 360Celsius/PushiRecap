@@ -2,10 +2,10 @@ package com.example.dennisshar.pushirecap;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.dennisshar.pushirecap.interfaces.ButtonViewInterfce;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalServiceCalls;
 import com.google.android.gms.ads.AdListener;
@@ -13,9 +13,11 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener, ButtonViewInterfce{
 
     private AdView mAdView;
+    private ImageView logo;
+    private ImageView backButton;
     private ImageView settingsButton;
     private ImageView moreButton;
 
@@ -28,6 +30,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         settingsButton.setOnClickListener(this);
         moreButton = (ImageView) findViewById(R.id.more_button);
         moreButton.setOnClickListener(this);
+        logo = (ImageView) findViewById(R.id.action_bar_icon);
+        backButton = (ImageView) findViewById(R.id.back_button);
+        backButton.setOnClickListener(this);
 
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
@@ -78,12 +83,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         switch (v.getId()){
             case R.id.settings_button:
-
+                Intent msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
+                msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.LOAD_SETTINGS_FRGMENTS);
+                startService(msgIntent);
                 break;
 
-            case R.id.more_button:
+            case R.id.back_button:
 
                 break;
         }
+    }
+
+    @Override
+    public ImageView getLogo() {
+        return logo;
+    }
+
+    @Override
+    public ImageView getBackBUtton() {
+        return backButton;
+    }
+
+    @Override
+    public ImageView getSettingsBUtton() {
+        return settingsButton;
+    }
+
+    @Override
+    public ImageView getMoreButton() {
+        return moreButton;
     }
 }

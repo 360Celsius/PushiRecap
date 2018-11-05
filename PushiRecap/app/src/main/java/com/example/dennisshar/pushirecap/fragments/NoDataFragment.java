@@ -18,6 +18,7 @@ public class NoDataFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_no_data, container, false);
 
+
         return view;
     }
 }

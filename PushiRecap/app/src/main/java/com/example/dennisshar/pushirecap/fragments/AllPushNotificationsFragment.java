@@ -44,6 +44,7 @@ public class AllPushNotificationsFragment extends BaseFragment implements SwipeR
         lastUpdatedList = (TextView) view.findViewById(R.id.last_updated_list);
         lastUpdatedList.setText(tools.getTools().getDateTime());
 
+
         return view;
     }
 

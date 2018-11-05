@@ -24,12 +24,23 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/ic_arrow_back_ios" />
+
+                <ImageView
                     android:id="@+id/action_bar_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="-70dp"
+                    android:visibility="invisible"
                     android:src="@drawable/pushi_recapp_logo" />
 
                 <ImageView
