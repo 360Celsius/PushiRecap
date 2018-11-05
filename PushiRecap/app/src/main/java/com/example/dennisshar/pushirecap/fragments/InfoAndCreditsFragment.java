@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 
 import com.example.dennisshar.pushirecap.R;
 
-public class NoDataFragment extends BaseFragment {
+public class InfoAndCreditsFragment extends BaseFragment {
 
-    public final static String TAG = "NoDataFragment";
+    public final static String TAG = "InfoAndCreditsFragment";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_no_data, container, false);
+        View view = inflater.inflate(R.layout.fragment_info_and_credits, container, false);
 
         return view;
     }
