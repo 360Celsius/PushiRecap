@@ -50,9 +50,13 @@ public class ResponseReceiver extends BroadcastReceiver {
                     }
                     break;
                 case PushiRecappGlobalServiceCalls.LOAD_MAIN_ACTIVITY:
-                    Intent intentone = new Intent(context, MainActivity.class);
-                    intentone.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intentone);
+                    try {
+                        Intent intentone = new Intent(context, MainActivity.class);
+                        intentone.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intentone);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     break;
             }
 
