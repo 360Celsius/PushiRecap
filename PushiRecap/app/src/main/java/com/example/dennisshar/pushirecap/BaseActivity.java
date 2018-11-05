@@ -20,7 +20,6 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
     public static DatabaseHelper helper = null;
     private static IntentFilter filter = null;
     private static ResponseReceiver receiver = null;
-
     public static Tools tools = null;
 
     @Override

@@ -8,4 +8,5 @@
 
     <string name="permition_explan_text">"You need to allow Notification Access before using this app"</string>
 
+    <string name="go_to_permisions_text">"Go To Permissions</string>
 </resources>

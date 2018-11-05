@@ -28,4 +28,9 @@
 
     <color name="adUnitBAckground">#adcf7c</color>
 
+    <color name="goToPermissionsTextColor">#5c5c5c</color>
+    <color name="goToPermissionsButtonRoundedCornures">#5c5c5c</color>
+    <color name="goToPermissionsButtonBgUnpressed">#ffffff</color>
+    <color name="goToPermissionsButtonBgPressed">#bcbcbc</color>
+
 </resources>
