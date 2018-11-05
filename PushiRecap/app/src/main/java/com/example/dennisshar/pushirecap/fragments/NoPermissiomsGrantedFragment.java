@@ -32,7 +32,7 @@ public class NoPermissiomsGrantedFragment extends BaseFragment implements View.O
 
         switch (v.getId()){
             case R.id.go_to_permisions_button:
-                Log.e("TEST","go_to_permisions_button");
+
                 break;
         }
     }
