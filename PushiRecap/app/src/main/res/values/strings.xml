@@ -9,4 +9,9 @@
     <string name="permition_explan_text">"You need to allow Notification Access before using this app"</string>
 
     <string name="go_to_permisions_text">"Go To Permissions</string>
+
+    <string name="credits_screen_name">"Credits</string>
+    <string name="setting_screen_name">"Settings</string>
+    <string name="permisions_screen_name">"Permissions</string>
+
 </resources>

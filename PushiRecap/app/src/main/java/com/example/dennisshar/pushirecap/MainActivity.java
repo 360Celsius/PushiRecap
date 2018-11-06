@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dennisshar.pushirecap.interfaces.ButtonViewInterfce;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
@@ -18,6 +19,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private AdView mAdView;
     private ImageView logo;
     private ImageView backButton;
+    private TextView screenName;
     private ImageView settingsButton;
     private ImageView moreButton;
 
@@ -33,6 +35,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         logo = (ImageView) findViewById(R.id.action_bar_icon);
         backButton = (ImageView) findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
+        screenName = (TextView) findViewById(R.id.screen_name);
 
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
@@ -112,5 +115,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public ImageView getMoreButton() {
         return moreButton;
+    }
+
+    @Override
+    public TextView getScreenName() {
+        return screenName;
     }
 }

@@ -33,4 +33,6 @@
     <color name="goToPermissionsButtonBgUnpressed">#ffffff</color>
     <color name="goToPermissionsButtonBgPressed">#bcbcbc</color>
 
+    <color name="screenNameTextColor">#ffffff</color>
+
 </resources>

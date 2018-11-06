@@ -37,31 +37,46 @@ public class BaseFragment extends Fragment{
             buttonViewInterfce.getBackBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getSettingsBUtton().setVisibility(View.VISIBLE);
             buttonViewInterfce.getMoreButton().setVisibility(View.VISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.INVISIBLE);
         }else if(getFragmentManager().findFragmentByTag(InfoAndCreditsFragment.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getBackBUtton().setVisibility(View.VISIBLE);
             buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.VISIBLE);
+            buttonViewInterfce.getScreenName().setText(getResources().getString(R.string.credits_screen_name));
         }else if(getFragmentManager().findFragmentByTag(NoDataFragment.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.VISIBLE);
             buttonViewInterfce.getBackBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getSettingsBUtton().setVisibility(View.VISIBLE);
             buttonViewInterfce.getMoreButton().setVisibility(View.VISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.INVISIBLE);
         }else if(getFragmentManager().findFragmentByTag(NoPermissiomsGrantedFragment.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.VISIBLE);
             buttonViewInterfce.getBackBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.INVISIBLE);
         }else if(getFragmentManager().findFragmentByTag(PermissionsFragment.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.INVISIBLE);;
             buttonViewInterfce.getBackBUtton().setVisibility(View.VISIBLE);;
-            buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);;
-            buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);;
+            buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);
+            buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.VISIBLE);
+            buttonViewInterfce.getScreenName().setText(getResources().getString(R.string.permisions_screen_name));
         }else if(getFragmentManager().findFragmentByTag(SettingsFragment.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.INVISIBLE);;
             buttonViewInterfce.getBackBUtton().setVisibility(View.VISIBLE);;
-            buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);;
-            buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);;
+            buttonViewInterfce.getSettingsBUtton().setVisibility(View.INVISIBLE);
+            buttonViewInterfce.getMoreButton().setVisibility(View.INVISIBLE);
+
+            buttonViewInterfce.getScreenName().setVisibility(View.VISIBLE);
+            buttonViewInterfce.getScreenName().setText(getResources().getString(R.string.setting_screen_name));
         }
 
 

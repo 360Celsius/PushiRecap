@@ -12,6 +12,8 @@ import com.example.dennisshar.pushirecap.R;
 public class InfoAndCreditsFragment extends BaseFragment {
 
     public final static String TAG = "InfoAndCreditsFragment";
+    public final static String SCREEN_NAME = "Credits";
+
 
     @Nullable
     @Override

@@ -12,6 +12,8 @@ import com.example.dennisshar.pushirecap.R;
 public class SettingsFragment extends BaseFragment {
 
     public final static String TAG = "SettingsFragment";
+    public final static String SCREEN_NAME = "Settings";
+
 
     @Nullable
     @Override

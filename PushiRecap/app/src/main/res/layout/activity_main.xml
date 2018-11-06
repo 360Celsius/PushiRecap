@@ -33,6 +33,18 @@
                     android:visibility="invisible"
                     android:src="@drawable/ic_arrow_back_ios" />
 
+                <TextView
+                    android:id="@+id/screen_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:layout_marginLeft="6dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/screenNameTextColor"
+                    android:layout_toRightOf="@+id/back_button"/>
+
                 <ImageView
                     android:id="@+id/action_bar_icon"
                     android:layout_width="wrap_content"
