@@ -10,8 +10,16 @@
 
     <string name="go_to_permisions_text">"Go To Permissions</string>
 
-    <string name="credits_screen_name">"Credits</string>
-    <string name="setting_screen_name">"Settings</string>
-    <string name="permisions_screen_name">"Permissions</string>
+    <string name="credits_screen_name">"Credits"</string>
+    <string name="setting_screen_name">"Settings"</string>
+    <string name="permisions_screen_name">"Permissions"</string>
 
+    <string name="notifications_settings_header">"Enable notification access"</string>
+    <string name="notifications_settings_explanations">"Pressing on Notifications access button will take you to notifications access setting screen in which you will need to turn ON PushiRecapp notification access."</string>
+    <string name="go_to_nottification_access_button_text">"Notification access"</string>
+
+
+    <string name="permissions_settings_header">"Permissions"</string>
+    <string name="permission_explanations">"Please allow PushiRecapp to access Phone and SMS State in order to enable app functionality"</string>
+    <string name="gpermission_access_button_text">"Permissions settings"</string>
 </resources>

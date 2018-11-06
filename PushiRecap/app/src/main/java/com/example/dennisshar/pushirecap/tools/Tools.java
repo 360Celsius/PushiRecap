@@ -1,8 +1,11 @@
 package com.example.dennisshar.pushirecap.tools;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 
 import com.example.dennisshar.pushirecap.dbhelper.DatabaseHelper;
 
@@ -21,7 +24,7 @@ public class Tools {
         return dateFormat.format(date);
     }
 
-    public boolean checkNotificationAccessPermisions(){
+    public boolean checkNotificationAccess(){
 
         ContentResolver contentResolver = context.getContentResolver();
         String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
@@ -38,6 +41,20 @@ public class Tools {
             return true;
         }
 
+    }
+
+    public boolean chaeckPermissions(){
+
+        if ( ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED  &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ){
+
+            return false;
+        }else {
+
+            return true;
+        }
     }
 
 
