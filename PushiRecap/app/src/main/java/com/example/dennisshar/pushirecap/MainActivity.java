@@ -83,16 +83,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-
+        Intent msgIntent = null;
         switch (v.getId()){
             case R.id.settings_button:
-                Intent msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
+                msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
                 msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.LOAD_SETTINGS_FRGMENTS);
                 startService(msgIntent);
                 break;
 
             case R.id.back_button:
-
+                msgIntent = new Intent(getApplicationContext(), PushiRecappGlobalService.class);
+                msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+                startService(msgIntent);
                 break;
         }
     }

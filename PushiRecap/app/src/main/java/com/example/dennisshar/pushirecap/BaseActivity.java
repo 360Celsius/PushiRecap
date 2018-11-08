@@ -40,7 +40,7 @@ public class BaseActivity extends AppCompatActivity implements DataBaseHelperInt
         }
 
         helper = DatabaseHelper.getInstance(getApplicationContext());
-        tools = Tools.getInstance(getApplicationContext());
+        tools = Tools.getInstance(getApplicationContext(),this);
 
 
     }
