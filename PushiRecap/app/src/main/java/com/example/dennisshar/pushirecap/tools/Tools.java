@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -47,6 +49,22 @@ public class Tools {
 
     }
 
+    public static synchronized Tools getInstance(Context context,Activity act) {
+
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new Tools(context.getApplicationContext(),act);
+        }
+        return sInstance;
+    }
+
+    public Tools(Context context, Activity act) {
+        this.context = context;
+        this.act = act;
+    }
+
     public boolean chaeckPermissions(){
 
         int READ_PHONE_STATE = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE);
@@ -76,20 +94,19 @@ public class Tools {
         return true;
     }
 
-
-    public static synchronized Tools getInstance(Context context,Activity act) {
-
-        // Use the application context, which will ensure that you
-        // don't accidentally leak an Activity's context.
-        // See this article for more information: http://bit.ly/6LRzfx
-        if (sInstance == null) {
-            sInstance = new Tools(context.getApplicationContext(),act);
+    public List<PackageInfo> getInstalledApps() {
+        //List<AppList> res = new ArrayList<AppList>();
+        List<PackageInfo> packs = context.getPackageManager().getInstalledPackages(0);
+        for (int i = 0; i < packs.size(); i++) {
+            PackageInfo p = packs.get(i);
+            //if ((isSystemPackage(p) == false))
+            {
+                String appName = p.applicationInfo.loadLabel(context.getPackageManager()).toString();
+               // Drawable icon = p.applicationInfo.loadIcon(context.getPackageManager());
+               // res.add(new AppList(appName, icon));
+            }
         }
-        return sInstance;
+        return packs;
     }
 
-    public Tools(Context context, Activity act) {
-        this.context = context;
-        this.act = act;
-    }
 }

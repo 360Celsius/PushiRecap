@@ -43,12 +43,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DataBaseHelperContract.ExternalPushNotifications.SQL_CREATE_ENTRIES_EXTERNAL_PUSH_TABLE);
+        db.execSQL(DataBaseHelperContract.DevvicePackagesOnDevice.SQL_CREATE_ON_DEVICE_INSTALED_PACKAGES_TABLE);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
             db.execSQL(DataBaseHelperContract.ExternalPushNotifications.SQL_CREATE_ENTRIES_EXTERNAL_PUSH_TABLE);
+            db.execSQL(DataBaseHelperContract.DevvicePackagesOnDevice.SQL_CREATE_ON_DEVICE_INSTALED_PACKAGES_TABLE);
+
         }
     }
 
@@ -145,4 +149,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return rowCounter;
         }
     }
+
+
+    ////////////////////////// All avilable packages installed on device //////////////////////////
+
 }

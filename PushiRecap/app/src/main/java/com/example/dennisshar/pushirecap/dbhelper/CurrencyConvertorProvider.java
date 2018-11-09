@@ -19,10 +19,13 @@ public class CurrencyConvertorProvider extends ContentProvider {
     public static DatabaseHelper helper = null;
 
     private static final int EXTERNAL_PUSH_NOTIFICATIONS = 1;
+    private static final int ON_DEVICE_INSTALLED_PACKAGES = 2;
     private static final UriMatcher mMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         mMatcher.addURI(DataBaseHelperContract.AUTHORITY, DataBaseHelperContract.ExternalPushNotifications.URI_SUFFIX, EXTERNAL_PUSH_NOTIFICATIONS);
+        mMatcher.addURI(DataBaseHelperContract.AUTHORITY, DataBaseHelperContract.DevvicePackagesOnDevice.URI_SUFFIX, ON_DEVICE_INSTALLED_PACKAGES);
+
     }
 
     @Override
@@ -78,6 +81,10 @@ public class CurrencyConvertorProvider extends ContentProvider {
                 tableName = DataBaseHelperContract.ExternalPushNotifications.TABLE_NAME;
                 break;
 
+            case ON_DEVICE_INSTALLED_PACKAGES:
+                tableName = DataBaseHelperContract.DevvicePackagesOnDevice.TABLE_NAME;
+                break;
+
         }
 
         return tableName;
@@ -91,6 +98,9 @@ public class CurrencyConvertorProvider extends ContentProvider {
                 contentUriName = DataBaseHelperContract.ExternalPushNotifications.CONTENT_URI;
                 break;
 
+            case ON_DEVICE_INSTALLED_PACKAGES:
+                contentUriName = DataBaseHelperContract.DevvicePackagesOnDevice.CONTENT_URI;
+                break;
 
         }
 
