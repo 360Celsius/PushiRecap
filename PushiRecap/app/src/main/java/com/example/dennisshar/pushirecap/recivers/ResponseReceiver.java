@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.dennisshar.pushirecap.MainActivity;
 import com.example.dennisshar.pushirecap.R;
-import com.example.dennisshar.pushirecap.fragments.AllPushNotificationsFragment;
+import com.example.dennisshar.pushirecap.fragments.AllPushNotificationsFragmentHolder;
 import com.example.dennisshar.pushirecap.fragments.NoDataFragment;
 import com.example.dennisshar.pushirecap.fragments.NoPermissiomsGrantedFragment;
 import com.example.dennisshar.pushirecap.fragments.PermissionsFragment;
@@ -30,7 +30,8 @@ public class ResponseReceiver extends BroadcastReceiver {
 
                 case PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB:
                     try {
-                        ft.add(R.id.fragment_view_placeholder, new AllPushNotificationsFragment(), AllPushNotificationsFragment.TAG);
+                        ft.add(R.id.fragment_view_placeholder, new AllPushNotificationsFragmentHolder(), AllPushNotificationsFragmentHolder.TAG);
+
                     }catch (Exception e){
                         e.printStackTrace();
                     }

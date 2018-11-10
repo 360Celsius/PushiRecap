@@ -11,7 +11,6 @@ import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.interfaces.ButtonViewInterfce;
 import com.example.dennisshar.pushirecap.interfaces.DataBaseHelperInterface;
 import com.example.dennisshar.pushirecap.interfaces.ToolsInterface;
-import com.example.dennisshar.pushirecap.tools.Tools;
 
 public class BaseFragment extends Fragment{
 
@@ -32,7 +31,7 @@ public class BaseFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(getFragmentManager().findFragmentByTag(AllPushNotificationsFragment.TAG)!=null){
+        if( getFragmentManager().findFragmentByTag(AllPushNotificationsFragmentHolder.TAG)!=null){
             buttonViewInterfce.getLogo().setVisibility(View.VISIBLE);
             buttonViewInterfce.getBackBUtton().setVisibility(View.INVISIBLE);
             buttonViewInterfce.getSettingsBUtton().setVisibility(View.VISIBLE);
