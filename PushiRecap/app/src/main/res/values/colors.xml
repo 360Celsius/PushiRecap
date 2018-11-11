@@ -35,4 +35,6 @@
 
     <color name="screenNameTextColor">#ffffff</color>
 
+    <color name="nav_tab_bar_navigation_text_act_inact_color">#79b629</color>
+
 </resources>

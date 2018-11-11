@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 
 import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.viewpager.ViewPagerAdapter;
+import com.gigamole.navigationtabstrip.NavigationTabStrip;
 
 public class AllPushNotificationsFragmentHolder extends BaseFragment {
 
     public final static String TAG = "AllPushNotificationsFragmentHolder";
     private ViewPager viewPager;
+    private NavigationTabStrip navigationTabStrip;
 
     @Nullable
     @Override
@@ -23,13 +25,19 @@ public class AllPushNotificationsFragmentHolder extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_all_push_viewpager, container, false);
 
+        navigationTabStrip = (NavigationTabStrip) view.findViewById(R.id.navigation_tab_strip);
 
         viewPager = view.findViewById(R.id.view_pager);
-        viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager()));
-
-
 
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager()));
+        navigationTabStrip.setViewPager(viewPager);
+
+    }
 }
