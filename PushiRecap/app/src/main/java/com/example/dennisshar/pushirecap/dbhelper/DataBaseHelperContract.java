@@ -48,7 +48,7 @@ public class DataBaseHelperContract {
                 "DROP TABLE IF EXISTS " + ExternalPushNotifications.TABLE_NAME;
 
         public static final String SQL_SELECT_EXTERNAL_PUSH_TABLE =
-                "SELECT  * FROM " + ExternalPushNotifications.TABLE_NAME + " WHERE "+ ExternalPushNotifications._ID;
+                "SELECT  * FROM " + ExternalPushNotifications.TABLE_NAME + " WHERE "+ ExternalPushNotifications._ID  + " ORDER BY " +ExternalPushNotifications._ID + " DESC" ;
 
     }
 
