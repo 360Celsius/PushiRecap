@@ -86,7 +86,8 @@
             android:id="@+id/fragment_view_placeholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar">
+            android:layout_below="@+id/toolbar"
+            android:layout_marginBottom="60dp">
 
         </FrameLayout>
 
@@ -94,6 +95,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/ads_view_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

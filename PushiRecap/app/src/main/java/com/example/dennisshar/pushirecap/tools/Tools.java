@@ -24,10 +24,16 @@ public class Tools {
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private Activity act;
 
-    public String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
+    public String getDateTime(String postTime) {
+        long timeStamp = Long.valueOf(postTime);
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            Date netDate = (new Date(timeStamp));
+            return sdf.format(netDate);
+        }
+        catch(Exception ex){
+            return "xx";
+        }
     }
 
     public boolean checkNotificationAccess(){

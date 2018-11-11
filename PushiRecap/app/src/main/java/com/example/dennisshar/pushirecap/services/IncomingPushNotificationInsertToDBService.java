@@ -40,13 +40,14 @@ public class IncomingPushNotificationInsertToDBService extends NotificationListe
             Bundle extras = sbn.getNotification().extras;
             String title = extras.getString("android.title");
             String text = extras.getCharSequence("android.text").toString();
+            String postTime = String.valueOf(sbn.getPostTime());
 
             ExternalPushNotificationsDataModel externalPushNotificationsDataModel = new ExternalPushNotificationsDataModel();
             externalPushNotificationsDataModel.setPackageName(pack);
             externalPushNotificationsDataModel.setTicker(ticker);
             externalPushNotificationsDataModel.setTitle(title);
             externalPushNotificationsDataModel.setText(text);
-            externalPushNotificationsDataModel.setDate(tools.getDateTime());
+            externalPushNotificationsDataModel.setDate(tools.getDateTime(postTime));
             helper.bulkExternalPushNotification(externalPushNotificationsDataModel);
 
 
