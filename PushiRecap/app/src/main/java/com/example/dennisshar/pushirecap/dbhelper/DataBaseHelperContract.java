@@ -50,6 +50,10 @@ public class DataBaseHelperContract {
         public static final String SQL_SELECT_EXTERNAL_PUSH_TABLE =
                 "SELECT  * FROM " + ExternalPushNotifications.TABLE_NAME + " WHERE "+ ExternalPushNotifications._ID  + " ORDER BY " +ExternalPushNotifications._ID + " DESC" ;
 
+
+        public static final String SQL_SELECT_EXTERNAL_PUSH_CATEGORIZED_TABLE =
+                "SELECT  * FROM " + ExternalPushNotifications.TABLE_NAME + " WHERE "+ ExternalPushNotifications._ID  + " ORDER BY " +ExternalPushNotifications.DATABASE_TABLE_PACKAGE_COLUMN;
+
     }
 
 
