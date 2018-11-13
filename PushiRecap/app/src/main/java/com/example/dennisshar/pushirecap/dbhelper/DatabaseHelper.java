@@ -2,6 +2,7 @@ package com.example.dennisshar.pushirecap.dbhelper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -186,4 +188,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     ////////////////////////// All avilable packages installed on device //////////////////////////
 
+    public void bulkInstalledPackagesOnDevice(List<PackageInfo> installedPAckgesList){
+        try {
+            //deletexternalPushNotification();
+            ContentValues[] ipInfoObjectArr = new ContentValues[installedPAckgesList.size()];
+            ;
+            for (int i = 0; i < ipInfoObjectArr.length; i++) {
+                ContentValues values = new ContentValues();
+                values.put(DataBaseHelperContract.DevvicePackagesOnDevice.DATABASE_TABLE_PACKAGE_NAME_COLUMN, installedPAckgesList.get(i).packageName);
+
+                ipInfoObjectArr[i] = values;
+            }
+            context.getContentResolver().bulkInsert(DataBaseHelperContract.DevvicePackagesOnDevice.CONTENT_URI, ipInfoObjectArr);
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+    }
 }

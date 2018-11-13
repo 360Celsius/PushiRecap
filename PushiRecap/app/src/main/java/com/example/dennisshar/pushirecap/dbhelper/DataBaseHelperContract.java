@@ -65,14 +65,12 @@ public class DataBaseHelperContract {
         public static final String TABLE_NAME = "device_installed_packages";
 
         public static final String DATABASE_TABLE_PACKAGE_NAME_COLUMN = "package";
-        public static final String DATABASE_TABLE_PACKAGE_NAME_FILTER_COLUMN = "filter";
 
 
         public static final String SQL_CREATE_ON_DEVICE_INSTALED_PACKAGES_TABLE =
                 "CREATE TABLE " + DevvicePackagesOnDevice.TABLE_NAME + " (" +
                         DevvicePackagesOnDevice._ID + " INTEGER PRIMARY KEY," +
-                        DevvicePackagesOnDevice.DATABASE_TABLE_PACKAGE_NAME_COLUMN + " TEXT," +
-                        DevvicePackagesOnDevice.DATABASE_TABLE_PACKAGE_NAME_FILTER_COLUMN + " TEXT)";
+                        DevvicePackagesOnDevice.DATABASE_TABLE_PACKAGE_NAME_COLUMN + " TEXT)";
 
 
         public static final String SQL_DELETE_INSTALED_PACKAGES_TABLE =

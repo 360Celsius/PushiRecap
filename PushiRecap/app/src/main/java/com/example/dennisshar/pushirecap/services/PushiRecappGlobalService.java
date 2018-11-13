@@ -65,7 +65,7 @@ public class PushiRecappGlobalService extends IntentService {
         }else if( intent.getStringExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY).equalsIgnoreCase(PushiRecappGlobalServiceCalls.LOAD_SETTINGS_FRGMENTS) ){
 
             //TODO
-            tools.getInstalledApps();
+            helper.bulkInstalledPackagesOnDevice( tools.getInstalledApps() );
 
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction(GET_DATA);
