@@ -10,10 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.dennisshar.pushirecap.R;
-import com.example.dennisshar.pushirecap.recyclerview.RecyclerViewAdapter;
+import com.example.dennisshar.pushirecap.recyclerview.PushNotificationRecyclerViewAdapter;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
 import com.example.dennisshar.pushirecap.services.PushiRecappGlobalServiceCalls;
 
@@ -21,7 +20,7 @@ public class AllPushNotificationsFragmentCategorized extends BaseFragment implem
 
     public final static String TAG = "AllPushNotificationsFragmentCategorized";
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private PushNotificationRecyclerViewAdapter recyclerViewAdapter;
 //    private TextView lastUpdatedList;
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -32,7 +31,7 @@ public class AllPushNotificationsFragmentCategorized extends BaseFragment implem
         View view = inflater.inflate(R.layout.fragment_all_push_categorized, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerViewAdapter = new RecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotificationCategorized(),getContext());
+        recyclerViewAdapter = new PushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotificationCategorized(),getContext());
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this);

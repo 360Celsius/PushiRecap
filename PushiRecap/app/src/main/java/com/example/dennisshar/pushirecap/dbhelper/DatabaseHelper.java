@@ -204,4 +204,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<String> getPackagesOnDevice() {
+
+        ArrayList<String> packagesOnDevicelList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DataBaseHelperContract.DevvicePackagesOnDevice.SQL_SELECT_INSTALED_PACKAGES_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+
+                   packagesOnDevicelList.add(cursor.getString((cursor.getColumnIndex(DataBaseHelperContract.DevvicePackagesOnDevice.DATABASE_TABLE_PACKAGE_NAME_COLUMN))));
+
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+
+            return packagesOnDevicelList;
+        }
+    }
 }

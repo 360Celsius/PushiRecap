@@ -14,27 +14,27 @@ import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDat
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<CustomViewHolder>{
+public class PushNotificationRecyclerViewAdapter extends RecyclerView.Adapter<PushNotificationCustomViewHolder>{
 
     ArrayList<ExternalPushNotificationsDataModel> externalPushNotificationsDataModelList = new ArrayList<>();
     Context context;
 
 
-    public RecyclerViewAdapter(ArrayList<ExternalPushNotificationsDataModel> list, Context context) {
+    public PushNotificationRecyclerViewAdapter(ArrayList<ExternalPushNotificationsDataModel> list, Context context) {
         this.externalPushNotificationsDataModelList = list;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PushNotificationCustomViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_row_item, viewGroup, false);
-        CustomViewHolder holder = new CustomViewHolder(v);
+        PushNotificationCustomViewHolder holder = new PushNotificationCustomViewHolder(v);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull PushNotificationCustomViewHolder viewHolder, int position) {
         viewHolder.pushNotificationTitle.setText(externalPushNotificationsDataModelList.get(position).getTitle());
         viewHolder.pushNotificationText.setText(externalPushNotificationsDataModelList.get(position).getText());
         viewHolder.pushnotificationDate.setText(externalPushNotificationsDataModelList.get(position).getDate());
