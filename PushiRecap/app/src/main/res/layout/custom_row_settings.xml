@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="80dp"
+    android:layout_height="50dp"
     android:id="@+id/custom_row_item_main_view"
     android:background="@color/customListRowColor">
 
@@ -10,8 +10,8 @@
         android:id="@+id/package_icon"
         android:layout_marginLeft="12dp"
         android:layout_centerVertical="true"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         />
 
     <TextView
@@ -21,8 +21,7 @@
         android:maxLines="1"
         android:ellipsize="end"
         android:layout_marginRight="24dp"
-        android:layout_toLeftOf="@+id/pushnotification_date"
-        android:layout_alignTop="@+id/package_icon"
+        android:layout_centerVertical="true"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/package_icon"
         />
