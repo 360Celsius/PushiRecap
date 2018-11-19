@@ -22,7 +22,8 @@ public class ResponseReceiver extends BroadcastReceiver {
             FragmentTransaction ft =   ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
 
             if(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.fragment_view_placeholder) != null) {
-                ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.fragment_view_placeholder));
+                if( ((AppCompatActivity) context).getSupportFragmentManager().findFragmentByTag(AllPushNotificationsFragmentHolder.TAG)  == null )
+                    ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.fragment_view_placeholder));
             }
 
 
@@ -30,7 +31,8 @@ public class ResponseReceiver extends BroadcastReceiver {
 
                 case PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB:
                     try {
-                        ft.add(R.id.fragment_view_placeholder, new AllPushNotificationsFragmentHolder(), AllPushNotificationsFragmentHolder.TAG);
+                        if( ((AppCompatActivity) context).getSupportFragmentManager().findFragmentByTag(AllPushNotificationsFragmentHolder.TAG)  == null )
+                            ft.add(R.id.fragment_view_placeholder, new AllPushNotificationsFragmentHolder(), AllPushNotificationsFragmentHolder.TAG);
 
                     }catch (Exception e){
                         e.printStackTrace();

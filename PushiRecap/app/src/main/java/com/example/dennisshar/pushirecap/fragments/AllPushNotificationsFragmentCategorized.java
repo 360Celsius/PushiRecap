@@ -51,13 +51,19 @@ public class AllPushNotificationsFragmentCategorized extends BaseFragment implem
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Stop refreshing
-        //swipeRefreshLayout.setRefreshing(false);
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onRefresh() {
-        Intent msgIntent = new Intent(getContext(), PushiRecappGlobalService.class);
-        msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
-        getContext().startService(msgIntent);
+
+        recyclerViewAdapter = new PushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotification(),getContext());
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        swipeRefreshLayout.setRefreshing(false);
+
+//        Intent msgIntent = new Intent(getContext(), PushiRecappGlobalService.class);
+//        msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+//        getContext().startService(msgIntent);
     }
 }

@@ -56,8 +56,14 @@ public class AllPushNotificationsFragment extends BaseFragment implements SwipeR
 
     @Override
     public void onRefresh() {
-        Intent msgIntent = new Intent(getContext(), PushiRecappGlobalService.class);
-        msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
-        getContext().startService(msgIntent);
+
+        recyclerViewAdapter = new PushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotification(),getContext());
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        swipeRefreshLayout.setRefreshing(false);
+
+//        Intent msgIntent = new Intent(getContext(), PushiRecappGlobalService.class);
+//        msgIntent.putExtra(PushiRecappGlobalServiceCalls.DATA_TYPE_KEY, PushiRecappGlobalServiceCalls.GET_PUSH_NOTIFICATIONS_DATA_FROM_SQL_DB);
+//        getContext().startService(msgIntent);
     }
 }
