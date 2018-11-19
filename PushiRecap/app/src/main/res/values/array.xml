@@ -3,8 +3,8 @@
 
     <string-array
         name="titles">
-        <item>All</item>
-        <item>By Type</item>
+        <item>All Pushi</item>
+        <item>TypeD Pusi</item>
     </string-array>
 
 </resources>
