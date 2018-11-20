@@ -7,93 +7,86 @@
     android:background="@color/pushNotificationBGColor"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/main_view"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/mainActivityActionBarBg"
+        android:titleTextColor="#ffffff">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_alignParentTop="true"
-            android:background="@color/mainActivityActionBarBg"
-            android:titleTextColor="#ffffff">
+            android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_arrow_back_ios" />
 
-                <ImageView
-                    android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="0dp"
-                    android:visibility="invisible"
-                    android:src="@drawable/ic_arrow_back_ios" />
+            <TextView
+                android:id="@+id/screen_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:layout_marginLeft="6dp"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textColor="@color/screenNameTextColor"
+                android:layout_toRightOf="@+id/back_button"/>
 
-                <TextView
-                    android:id="@+id/screen_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Settings"
-                    android:layout_marginLeft="6dp"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/screenNameTextColor"
-                    android:layout_toRightOf="@+id/back_button"/>
+            <ImageView
+                android:id="@+id/action_bar_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="-70dp"
+                android:visibility="invisible"
+                android:src="@drawable/pushi_recapp_logo" />
 
-                <ImageView
-                    android:id="@+id/action_bar_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="-70dp"
-                    android:visibility="invisible"
-                    android:src="@drawable/pushi_recapp_logo" />
+            <ImageView
+                android:id="@+id/settings_button"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/more_button"
+                android:layout_marginRight="0dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_settings" />
 
-                <ImageView
-                    android:id="@+id/settings_button"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/more_button"
-                    android:layout_marginRight="0dp"
-                    android:visibility="invisible"
-                    android:src="@drawable/ic_settings" />
-
-                <ImageView
-                    android:id="@+id/more_button"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="0dp"
-                    android:visibility="invisible"
-                    android:src="@drawable/ic_more_vert" />
+            <ImageView
+                android:id="@+id/more_button"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="0dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_more_vert" />
 
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
-        </android.support.v7.widget.Toolbar>
+    </android.support.v7.widget.Toolbar>
 
 
-        <FrameLayout
-            android:id="@+id/fragment_view_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
-            android:layout_marginBottom="60dp">
+    <FrameLayout
+        android:id="@+id/fragment_view_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/ads_view_wrapper"
+        android:layout_marginBottom="0dp">
 
-        </FrameLayout>
-
-
-    </RelativeLayout>
+    </FrameLayout>
 
     <RelativeLayout
         android:id="@+id/ads_view_wrapper"
