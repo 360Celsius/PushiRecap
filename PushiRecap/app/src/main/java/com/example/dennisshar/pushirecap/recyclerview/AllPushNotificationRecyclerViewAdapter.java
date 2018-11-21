@@ -8,19 +8,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.dennisshar.pushirecap.R;
 import com.example.dennisshar.pushirecap.datamodels.ExternalPushNotificationsDataModel;
 
 import java.util.ArrayList;
 
-public class PushNotificationRecyclerViewAdapter extends RecyclerView.Adapter<PushNotificationCustomViewHolder>{
+public class AllPushNotificationRecyclerViewAdapter extends RecyclerView.Adapter<PushNotificationCustomViewHolder>{
 
     ArrayList<ExternalPushNotificationsDataModel> externalPushNotificationsDataModelList = new ArrayList<>();
     Context context;
+    String rowHeader = null;
 
-
-    public PushNotificationRecyclerViewAdapter(ArrayList<ExternalPushNotificationsDataModel> list, Context context) {
+    public AllPushNotificationRecyclerViewAdapter(ArrayList<ExternalPushNotificationsDataModel> list, Context context) {
         this.externalPushNotificationsDataModelList = list;
         this.context = context;
     }
@@ -38,6 +39,31 @@ public class PushNotificationRecyclerViewAdapter extends RecyclerView.Adapter<Pu
         viewHolder.pushNotificationTitle.setText(externalPushNotificationsDataModelList.get(position).getTitle());
         viewHolder.pushNotificationText.setText(externalPushNotificationsDataModelList.get(position).getText());
         viewHolder.pushnotificationDate.setText(externalPushNotificationsDataModelList.get(position).getDate());
+
+        int layOutHight = 80;
+        final float scale = context.getResources().getDisplayMetrics().density;
+
+
+        if(rowHeader ==null || position == 0 || !rowHeader.equals(externalPushNotificationsDataModelList.get(position).getDate())){
+            layOutHight = 90;
+            rowHeader = externalPushNotificationsDataModelList.get(position).getDate();
+            viewHolder.date.setVisibility(View.VISIBLE);
+            viewHolder.date.setText(rowHeader);
+
+            int pixels = (int) (layOutHight * scale + 0.5f);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, pixels);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+
+        }else{
+            layOutHight = 80;
+            viewHolder.date.setVisibility(View.GONE);
+
+            int pixels = (int) (layOutHight * scale + 0.5f);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, pixels);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            viewHolder.customRowViewRow.setLayoutParams(layoutParams);
+        }
+
         try
         {
             Drawable icon = context.getPackageManager().getApplicationIcon(externalPushNotificationsDataModelList.get(position).getPackageName());

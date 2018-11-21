@@ -16,6 +16,7 @@ public class PushNotificationCustomViewHolder extends RecyclerView.ViewHolder{
     public TextView pushNotificationText;
     public ImageView packageIcon;
     public TextView pushnotificationDate;
+    public TextView date;
 
     public PushNotificationCustomViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,5 +25,6 @@ public class PushNotificationCustomViewHolder extends RecyclerView.ViewHolder{
         pushNotificationText = (TextView) itemView.findViewById(R.id.pushnotification_text);
         packageIcon = (ImageView) itemView.findViewById(R.id.package_icon);
         pushnotificationDate = (TextView) itemView.findViewById(R.id.pushnotification_date);
+        date = (TextView) itemView.findViewById(R.id.date);
     }
 }

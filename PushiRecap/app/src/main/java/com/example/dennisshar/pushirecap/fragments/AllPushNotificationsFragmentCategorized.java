@@ -1,6 +1,5 @@
 package com.example.dennisshar.pushirecap.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,15 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dennisshar.pushirecap.R;
-import com.example.dennisshar.pushirecap.recyclerview.PushNotificationRecyclerViewAdapter;
-import com.example.dennisshar.pushirecap.services.PushiRecappGlobalService;
-import com.example.dennisshar.pushirecap.services.PushiRecappGlobalServiceCalls;
+import com.example.dennisshar.pushirecap.recyclerview.AllPushNotificationRecyclerViewAdapter;
+import com.example.dennisshar.pushirecap.recyclerview.CategorizedPushNotificationRecyclerViewAdapter;
 
 public class AllPushNotificationsFragmentCategorized extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
     public final static String TAG = "AllPushNotificationsFragmentCategorized";
     private RecyclerView recyclerView;
-    private PushNotificationRecyclerViewAdapter recyclerViewAdapter;
+    private CategorizedPushNotificationRecyclerViewAdapter recyclerViewAdapter;
 //    private TextView lastUpdatedList;
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -31,7 +29,7 @@ public class AllPushNotificationsFragmentCategorized extends BaseFragment implem
         View view = inflater.inflate(R.layout.fragment_all_push_categorized, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerViewAdapter = new PushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotificationCategorized(),getContext());
+        recyclerViewAdapter = new CategorizedPushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotificationCategorized(),getContext(),getActivity());
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -57,7 +55,7 @@ public class AllPushNotificationsFragmentCategorized extends BaseFragment implem
     @Override
     public void onRefresh() {
 
-        recyclerViewAdapter = new PushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotification(),getContext());
+        recyclerViewAdapter = new CategorizedPushNotificationRecyclerViewAdapter(mCallback.getDataBasehelper().getPushNotification(),getContext(),getActivity());
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeRefreshLayout.setRefreshing(false);

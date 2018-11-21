@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dennisshar.pushirecap.R;
-import com.example.dennisshar.pushirecap.recyclerview.PushNotificationRecyclerViewAdapter;
 import com.example.dennisshar.pushirecap.recyclerview.SettingsRecyclerViewAdapter;
 
 public class SettingsFragment extends BaseFragment {
